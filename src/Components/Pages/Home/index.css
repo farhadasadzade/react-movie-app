@@ -1,0 +1,9 @@
+.main {
+    padding: 60px 0;
+}
+
+.main__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(292px, 292px));
+    gap: 30px;
+}
