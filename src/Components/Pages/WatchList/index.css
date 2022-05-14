@@ -1,0 +1,41 @@
+.watch {
+    padding: 30px 0;
+}
+
+.watch__title {
+    color: #fff;
+    font-weight: 700;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+}
+
+.watch__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.container_watch {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.watch__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.watch__header p {
+    color: #fff;
+    border-bottom: 1px dashed #7B61FF;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+
+.watch__header p:hover {
+    color: #7B61FF;
+}

@@ -69,3 +69,31 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+.header__links button {
+    position: relative;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.header__links button:hover {
+    transform: scale(1.1);
+}
+
+.header__links button span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #7B61FF;
+    top: -10px;
+    color: #fff;
+    right: -4px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}

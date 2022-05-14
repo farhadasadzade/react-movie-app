@@ -18,14 +18,14 @@ const Search = () => {
   const page = useSelector(({search}) => search.pageSearch)
   const query = useSelector(({search}) => search.query)
 
-  const loadingBlocks = Array(10).fill(0).map((item, index) => {return (
+  const loadingBlocks = Array(20).fill(0).map((item, index) => {return (
     <ContentLoader key={index}
     speed={2}
     width={250}
     height={376}
     viewBox="0 0 250 376"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
+    backgroundColor="#a1a1a1"
+    foregroundColor="#d1d1d1"
   >
     <rect x="0" y="0" rx="4" ry="4" width="250" height="376" />
   </ContentLoader>

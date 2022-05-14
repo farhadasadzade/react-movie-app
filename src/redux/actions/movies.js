@@ -8,7 +8,7 @@ export const setLoaded = val => ({
 export const fetchMovies = (page) => (dispatch) => {
     dispatch(setLoaded(false))
     axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=887987c153545960bfcff4b05ef39354&page=${page}`).then(({ data }) => {
-        dispatch(setMovies(data, page))
+        setTimeout(() => dispatch(setMovies(data, page)), 2000)
     })
 }
 

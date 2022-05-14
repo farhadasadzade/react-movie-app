@@ -8,7 +8,7 @@ export const setLoaded = val => ({
 export const fetchSearch = (page, query) => (dispatch) => {
     dispatch(setLoaded(false))
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=887987c153545960bfcff4b05ef39354&query=${query}&page=${page}`)
-        .then(({ data }) => dispatch(setSearchMovies(data, page, query)))
+        .then(({ data }) => setTimeout(() => dispatch(setSearchMovies(data, page, query)), 2000))
 }
 
 export const setSearchPage = (page, query) => (dispatch) => {

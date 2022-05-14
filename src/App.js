@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router';
 import Header from './Components/Header/Header';
 import Home from './Components/Pages/Home/Home';
 import Search from './Components/Pages/Search/Search';
+import WatchList from './Components/Pages/WatchList/WatchList';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} exact />
         <Route path='/search' element={<Search />} />
+        <Route path='/watchlist' element={<WatchList />} />
       </Routes>
     </div>
   );

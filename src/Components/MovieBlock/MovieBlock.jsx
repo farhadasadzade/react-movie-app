@@ -1,12 +1,44 @@
 import React from 'react'
 import './index.css'
+import 'animate.css';
+import noIMG from '../../nopicture.png'
 
 import genres from '../../genres.json'
 
-const MovieBlock = ({vote_average, title, poster_path, genre_ids}) => {
+import { addMovie } from '../../redux/actions/watchlist';
+import { useDispatch } from 'react-redux';
 
-    const imageSrc = `https://image.tmdb.org/t/p/w500/${poster_path}`
-return (
+const MovieBlock = ({id, vote_average, title, poster_path, genre_ids}) => {
+
+    const dispatch = useDispatch()
+
+    const imageSrc = poster_path != null ? `https://image.tmdb.org/t/p/w500/${poster_path}` : noIMG
+
+    let ratingClass = ''
+    
+    if(vote_average >= 8) {
+        ratingClass = `main__film-rating rating__1`
+    }else if(vote_average >= 6) {
+        ratingClass = `main__film-rating rating__2`
+    }else if(vote_average >= 4) {
+        ratingClass = `main__film-rating rating__3`
+    }else if(vote_average >= 2) {
+        ratingClass = `main__film-rating rating__4`
+    }else if(vote_average >= 0) {
+        ratingClass = `main__film-rating rating__5`
+    }
+
+    const handleClick = () => {
+        const movieObj = {
+            id,
+            title,
+            genre_ids,
+            imgSrc: imageSrc
+        }
+        dispatch(addMovie(movieObj))
+    }
+
+    return (
     <div className="main__film">
         <img src={imageSrc} alt="poster" />
         <div className="main__film-over"></div>
@@ -22,9 +54,9 @@ return (
             <div className="main__film-title">
                 {title}
             </div>
-            <button className='animate__animated animate__slideInUp'>Əlavə et</button>
+            <button onClick={() => handleClick()} className='animate__animated animate__slideInUp'>Əlavə et</button>
         </div>
-        <div className="main__film-rating">
+        <div className={ratingClass}>
             {vote_average}
         </div>
     </div>

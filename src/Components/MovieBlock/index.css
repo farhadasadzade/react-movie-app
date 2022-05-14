@@ -74,7 +74,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: #00ff00;
     width: 50px;
     height: 50px;
     position: absolute;
@@ -82,4 +81,24 @@
     right: 0;
     box-shadow: 0 0 11px #000;
     transform: translate(50%, -50%);
+}
+
+.rating__1 {
+    background-color: #57e32c;
+}
+
+.rating__2 {
+    background-color: #b7dd29;
+}
+
+.rating__3 {
+    background-color: #ffdc16;
+}
+
+.rating__4 {
+    background-color: #ff9d25;
+}
+
+.rating__5 {
+    background-color: #ff4545;
 }
