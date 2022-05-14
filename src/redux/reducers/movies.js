@@ -1,6 +1,7 @@
 const initialState = {
     movies: [],
-    isLoaded: false
+    isLoaded: false,
+    page: 1
 }
 
 const movies = (state = initialState, action) => {
@@ -9,8 +10,9 @@ const movies = (state = initialState, action) => {
         case 'SET_MOVIES':
             return {
                 ...state,
-                movies: action.payload,
-                isLoaded: true
+                movies: action.payload.movies,
+                isLoaded: true,
+                page: action.payload.page
             };
 
         case 'SET_LOADED':

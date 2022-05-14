@@ -5,7 +5,7 @@ import genres from '../../genres.json'
 
 const MovieBlock = ({vote_average, title, poster_path, genre_ids}) => {
 
-    const imageSrc = `https://image.tmdb.org/t/p/original/${poster_path}`
+    const imageSrc = `https://image.tmdb.org/t/p/w500/${poster_path}`
 return (
     <div className="main__film">
         <img src={imageSrc} alt="poster" />
