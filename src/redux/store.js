@@ -1,7 +1,5 @@
-import { createStore, compose, applyMiddleware } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
 import rootReducer from './reducers/'
-import thunk from 'redux-thunk'
 
 import {
     persistStore, persistReducer, FLUSH,
@@ -18,7 +16,7 @@ import storage from 'redux-persist/lib/storage'
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['watchList']
+    whitelist: ['watchList', 'about']
 }
 
 // let store = createStore(

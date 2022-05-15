@@ -40,7 +40,7 @@ const WatchItem = ({id, title, imgSrc, genre_ids}) => {
         </div>
         </div>
         <div className='right'>
-          {!watched && <button onClick={() => setWatched(true)}>İzlə</button>}
+          {!watched && <button onClick={() => setWatched(true)}>İzlədim</button>}
           <button onClick={() => handleClick()}><FontAwesomeIcon icon={faTrash}/></button>
         </div>
         

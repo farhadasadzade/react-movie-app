@@ -6,9 +6,11 @@ import noIMG from '../../nopicture.png'
 import genres from '../../genres.json'
 
 import { addMovie } from '../../redux/actions/watchlist';
+import { addAbout } from '../../redux/actions/about';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const MovieBlock = ({id, vote_average, title, poster_path, genre_ids}) => {
+const MovieBlock = ({id, vote_average, title, poster_path, genre_ids, overview, release_date}) => {
 
     const dispatch = useDispatch()
 
@@ -38,28 +40,34 @@ const MovieBlock = ({id, vote_average, title, poster_path, genre_ids}) => {
         dispatch(addMovie(movieObj))
     }
 
+    const handleAboutClick = () => {
+        dispatch(addAbout({title, overview, release_date, genre_ids, poster_path, vote_average}))
+    }
+
     return (
-    <div className="main__film">
-        <img src={imageSrc} alt="poster" />
-        <div className="main__film-over"></div>
-        <div className="main__film-info">
-            <div className="main__film-genre">
-                  {// eslint-disable-next-line
-                  genres.genres.map((genre) => {
-                      if(genre.id === genre_ids[0]) {
-                          return genre.name
-                      }
-                  })}
+        <Link to='/about' onClick={() => handleAboutClick()}>
+            <div className="main__film">
+                <img src={imageSrc} alt="poster" />
+                <div className="main__film-over"></div>
+                <div className="main__film-info">
+                    <div className="main__film-genre">
+                        {// eslint-disable-next-line
+                        genres.genres.map((genre) => {
+                            if(genre.id === genre_ids[0]) {
+                            return genre.name
+                        }
+                    })}
+                    </div>
+                    <div className="main__film-title">
+                        {title}
+                    </div>
+                    <button onClick={() => handleClick()} className='animate__animated animate__slideInUp'>Əlavə et</button>
+                </div>
+                <div className={ratingClass}>
+                    {vote_average}
+                    </div>
             </div>
-            <div className="main__film-title">
-                {title}
-            </div>
-            <button onClick={() => handleClick()} className='animate__animated animate__slideInUp'>Əlavə et</button>
-        </div>
-        <div className={ratingClass}>
-            {vote_average}
-        </div>
-    </div>
+        </Link>
   )
 }
 

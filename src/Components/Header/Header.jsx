@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { useRef } from 'react'
 import './index.css'
 
@@ -13,7 +13,10 @@ import { fetchSearch } from '../../redux/actions/search'
 
 const Header = () => {
 
+  const [name, setName] = useState('')
+
   const searchInput = useRef()
+  const cartBtn = useRef()
 
   const dispatch = useDispatch()
 
@@ -27,6 +30,13 @@ const Header = () => {
   const handleClick = () => {
     dispatch(fetchSearch(1, searchQuery))
   }
+  
+  useEffect(() => {
+    setName('shake')
+    setTimeout(() => {
+      setName('')
+    }, 500)
+  },[totalFilms]) 
 
   return (
     <header className="header">
@@ -40,7 +50,7 @@ const Header = () => {
               <Link to='/search'> <button onClick={() => handleClick()}><FontAwesomeIcon icon={faMagnifyingGlass} /></button> </Link>
             </div>
             <div className="header__links">
-              <Link to='/watchlist'> <button> <FontAwesomeIcon icon={faTv}/> {totalFilms > 0 && <span>{totalFilms}</span>}</button> </Link>
+              <Link to='/watchlist'> <button className={name} ref={cartBtn}> <FontAwesomeIcon icon={faTv}/> {totalFilms > 0 && <span>{totalFilms}</span>}</button> </Link>
             </div>
           </div>
         </div>
