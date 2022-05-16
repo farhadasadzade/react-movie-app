@@ -45,8 +45,10 @@ const MovieBlock = ({id, vote_average, title, poster_path, genre_ids, overview, 
     }
 
     return (
-        <Link to='/about' onClick={() => handleAboutClick()}>
             <div className="main__film">
+                <Link to='/about' onClick={() => handleAboutClick()}>
+                    
+                </Link>
                 <img src={imageSrc} alt="poster" />
                 <div className="main__film-over"></div>
                 <div className="main__film-info">
@@ -67,7 +69,6 @@ const MovieBlock = ({id, vote_average, title, poster_path, genre_ids, overview, 
                     {vote_average}
                     </div>
             </div>
-        </Link>
   )
 }
 

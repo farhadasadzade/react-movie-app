@@ -102,3 +102,18 @@
 .rating__5 {
     background-color: #ff4545;
 }
+
+.main__film a {
+    display: block;
+    width: 100%;
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    height: 250px;
+}
+
+@media screen and (max-width: 777px) {
+    .main__film-info button {
+        display: block;
+    }
+}

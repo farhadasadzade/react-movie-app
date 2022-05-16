@@ -39,7 +39,8 @@ const Header = () => {
   },[totalFilms]) 
 
   return (
-    <header className="header">
+    <div className='header__parent'>
+      <header className="header">
         <div className="container">
           <div className="header__content">
             <div className="header__logo" onClick={() => dispatch(setPage(1))}>
@@ -54,7 +55,14 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </header>
+    </header>
+    <div className="header__mobile">
+      <div className="header__mobile__search">
+              <input type="text" placeholder="Axtar..." ref={searchInput} onChange={() => handleChange()}/>
+              <Link to='/search'> <button onClick={() => handleClick()}><FontAwesomeIcon icon={faMagnifyingGlass} /></button> </Link>
+            </div>
+      </div>
+    </div>
   )
 }
 
