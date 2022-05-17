@@ -14,17 +14,22 @@ import { fetchSearch } from '../../redux/actions/search'
 const Header = () => {
 
   const [name, setName] = useState('')
+  const [searchQuery,setSearchQuery] = useState('')
 
   const searchInput = useRef()
+  const searchMobileInput = useRef()
   const cartBtn = useRef()
 
   const dispatch = useDispatch()
 
   const totalFilms = useSelector(({watchList}) => watchList.totalFilms)
 
-  let searchQuery = ''
   const handleChange = () => {
-    searchQuery = searchInput.current.value.split(' ').join('%20')
+    setSearchQuery(searchInput.current.value.split(' ').join('%20'))
+  }
+
+  const handleMobileChange = () => {
+    setSearchQuery(searchMobileInput.current.value.split(' ').join('%20'))
   }
 
   const handleClick = () => {
@@ -58,7 +63,7 @@ const Header = () => {
     </header>
     <div className="header__mobile">
       <div className="header__mobile__search">
-              <input type="text" placeholder="Axtar..." ref={searchInput} onChange={() => handleChange()}/>
+              <input type="text" placeholder="Axtar..." ref={searchMobileInput} onChange={() => handleMobileChange()}/>
               <Link to='/search'> <button onClick={() => handleClick()}><FontAwesomeIcon icon={faMagnifyingGlass} /></button> </Link>
             </div>
       </div>
