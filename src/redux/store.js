@@ -16,7 +16,7 @@ import storage from 'redux-persist/lib/storage'
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['watchList', 'about']
+    whitelist: ['watchList', 'about', 'playlist']
 }
 
 // let store = createStore(

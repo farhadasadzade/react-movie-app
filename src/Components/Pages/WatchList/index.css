@@ -7,7 +7,6 @@
     font-weight: 700;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 30px;
 }
 
 .watch__list {
@@ -25,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .watch__header p {
@@ -38,4 +38,21 @@
 
 .watch__header p:hover {
     color: #7B61FF;
+}
+
+.watch button {
+    box-shadow: 0px 16px 16px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 40px;
+    background: none;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    border: 0.5px solid #7B61FF;
+    padding: 10px 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.watch button:hover {
+    background-color: #7B61FF;
 }

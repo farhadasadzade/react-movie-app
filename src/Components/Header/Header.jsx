@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import './index.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faTv } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faTv, faList } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from 'react-router-dom'
 
@@ -21,6 +21,7 @@ const Header = () => {
   const dispatch = useDispatch()
 
   const totalFilms = useSelector(({watchList}) => watchList.totalFilms)
+  const totalPlaylist = useSelector(({playlist}) => playlist.playlistArray)
 
   let searchQuery = ''
   const handleChange = () => {
@@ -51,6 +52,7 @@ const Header = () => {
               <Link to='/search'> <button onClick={() => handleClick()}><FontAwesomeIcon icon={faMagnifyingGlass} /></button> </Link>
             </div>
             <div className="header__links">
+              <Link to='/playlist'> <button> <FontAwesomeIcon icon={faList}/> {totalPlaylist.length > 0 && <span>{totalPlaylist.length}</span>} </button></Link>
               <Link to='/watchlist'> <button className={name} ref={cartBtn}> <FontAwesomeIcon icon={faTv}/> {totalFilms > 0 && <span>{totalFilms}</span>}</button> </Link>
             </div>
           </div>

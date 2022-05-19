@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import WatchItem from '../../WatchItem/WatchItem'
 import { clearList } from '../../../redux/actions/watchlist'
+import { createPlayList } from '../../../redux/actions/playlist'
 import './index.css'
 
 //Components
@@ -19,6 +20,12 @@ const WatchList = () => {
     }
   }
 
+  const addPlayList = () => {
+    const result = window.prompt('Zəhmət olmasa, playlistin adını daxil edin')
+    dispatch(createPlayList(result, movieList))
+    dispatch(clearList())
+  }
+
   return (
     <div className='watch'>
         <div className="container_watch">
@@ -32,6 +39,7 @@ const WatchList = () => {
               return <WatchItem key={item.id} {...item}/>
             })}
           </ul>
+          {movieList.movies.length > 0 && <button onClick={addPlayList}>Playlisti yadda saxla</button>}
         </div>
     </div>
   )
