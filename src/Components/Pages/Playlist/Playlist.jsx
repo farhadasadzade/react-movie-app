@@ -14,20 +14,26 @@ const Playlist = () => {
     const playlistMovies = useSelector(({playlist}) => playlist.playlistArray)
 
     const [name, setName] = useState(playlistNames[0])
+    const [list, setList] = useState([])
 
-    const list =// eslint-disable-next-line
+    
+
+    useEffect(() => {
+        setName(playlistNames[0])
+        const list =// eslint-disable-next-line
      playlistMovies && playlistMovies.filter((item) => {
         if(item.playlistName === name) {
             return item
         }
     })
-
+        setList(list)
+    }, [playlistNames, name])
+    
     const select = useRef()
 
     const deletePlaylist = () => {
         if(window.confirm('Playlist-i silmək istədiyinizə əminsiniz?')) {
             dispatch(deletePlayList(name))
-            setName(playlistNames[0])
         } 
     }
 
